@@ -79,7 +79,7 @@ namespace EasyGifts
                 int lovingCharsWidth =
                     (32 * Math.Min(3, itemLovers.Count)) + (itemLovers.Count >= 4 ? 32 : 0);
 
-                DrawItemLovers(itemLovers, offset + new Vector2(-lovingCharsWidth, 65.0f));
+                DrawItemLovers(itemLovers, offset + new Vector2(-lovingCharsWidth, 0));
             }
         }
 

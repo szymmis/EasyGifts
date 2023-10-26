@@ -104,7 +104,9 @@ namespace EasyGifts
             bool edibleItem = item is SObject && (item as SObject).Edibility != -300;
             int healAmountToDisplay = edibleItem ? (item as SObject).Edibility : (-1);
 
-            string[] objInfo = edibleItem ? Game1.objectInformation[item.ParentSheetIndex].Split('/') : Array.Empty<string>();
+            string[] objInfo = edibleItem
+                ? Game1.objectInformation[item.ParentSheetIndex].Split('/')
+                : Array.Empty<string>();
             string[] buffIconsToDisplay =
                 (edibleItem && objInfo.Length > 7)
                     ? item.ModifyItemBuffs(objInfo[7].Split(' '))
@@ -353,7 +355,10 @@ namespace EasyGifts
                 y4 = Utility.getSafeArea().Bottom - height2;
             }
 
-            return new Vector2(x + width, y4);
+            return new Vector2(
+                x + width,
+                hoveredItem.getCategoryName().Length > 0 ? y4 + 65.0f : y4 + 32.0f
+            );
         }
     }
 }
