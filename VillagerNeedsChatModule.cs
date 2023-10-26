@@ -61,6 +61,11 @@ namespace EasyGifts
 
         private static bool CharacterNeedsChat(Character villager)
         {
+            if (!Game1.NPCGiftTastes.ContainsKey(villager.Name))
+            {
+                return false;
+            }
+
             if (!Game1.player.friendshipData.ContainsKey(villager.Name))
             {
                 return true;
